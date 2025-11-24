@@ -26,7 +26,7 @@ namespace RPM10
         }
         private List<Animal> listAmimals = new List<Animal>();
         private Animal selectedAnimals = null;
-
+        Animal Animals;
         private void UpdateAnimalsList()
         {
             lbAnimal.ItemsSource = null;
@@ -49,7 +49,7 @@ namespace RPM10
             f3 = int.TryParse(tbId.Text, out int id);
             if (f1 == f2 == f3 == true && age > 0 && age < 100 && weight > 0)
             {
-                Animal Animals = null;
+                Animals = null;
                 switch (cbAnimals.Text)
                 {
                     case "Млекопитающие":
@@ -65,6 +65,7 @@ namespace RPM10
                 if (Animals != null)
                 {
                     Animals.UpdateAnimals(id,tbName.Text, age, weight);
+                    listAmimals.Add(Animals);
                     UpdateAnimalsList();
                     ClearFields();
                 }
@@ -106,7 +107,17 @@ namespace RPM10
 
         private void btnDel_Click(object sender, RoutedEventArgs e)
         {
-
+            if (selectedAnimals !=null)
+            {
+                listAmimals.Remove(selectedAnimals);
+                selectedAnimals = null;
+                UpdateAnimalsList();
+                ClearFields();
+            }
+            else
+            {
+                MessageBox.Show("Выберите животное для удаления");
+            }
         }
 
         private void btnAbout_Click(object sender, RoutedEventArgs e)
@@ -117,6 +128,11 @@ namespace RPM10
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void lbAnimal_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            selectedAnimals = (Animal)lbAnimal.SelectedItem;
         }
     }
 }

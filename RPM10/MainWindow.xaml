@@ -21,9 +21,10 @@
             <Button x:Name="btnAbout" Content="О программе" VerticalAlignment="Center" Margin="10,10,10,10" Width="150" Click="btnAbout_Click"/>
             <Button x:Name="btnExit" Content="Выход" VerticalAlignment="Center" Margin="10,10,10,10" Width="100" Click="btnExit_Click"/>
         </StackPanel>
-        <StackPanel Grid.RowSpan="2">
+        <StackPanel Grid.RowSpan="3">
             <Label Content="Список животных:" FontWeight="UltraBold" FontSize="14"/>
-            <ListBox x:Name="lbAnimal" Height="230" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="5,0,5,10"/>
+            <ListBox x:Name="lbAnimal" Height="230" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="5,0,5,30" SelectionMode ="Single" SelectionChanged="lbAnimal_SelectionChanged"/>
+            <Button x:Name="btnDel" Content="Удалить" VerticalAlignment="Center" HorizontalAlignment="Center" Width="300" Click="btnDel_Click"/>
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.RowSpan="3">
             <Label Content="Добавить/Изменить животное:" FontSize="14" FontWeight="UltraBold"/>
@@ -39,12 +40,6 @@
             <TextBox x:Name="tbAge" TextWrapping="Wrap" Width="300"/>
             <Button x:Name="btnAdd" Content="Добавить" Margin="0,20,0,0" HorizontalAlignment="Center" Width="300" Click="btnAdd_Click"/>
             <Button x:Name="btnChange" Content="Изменить" Margin="0,5,0,0" HorizontalAlignment="Center" Width="300" Click="btnChange_Click"/>
-        </StackPanel>
-        <StackPanel Grid.Row="2">
-            <Label Content="Удаление по номеру животного из списка:" FontSize="14" FontWeight="UltraBold"/>
-            <Label Content="Номер в списке:"/>
-            <TextBox x:Name="btnCode" TextWrapping="Wrap" Width="300" Padding="0,0,0,5"/>
-            <Button x:Name="btnDel" Content="Удалить" VerticalAlignment="Center" HorizontalAlignment="Center" Width="300" Click="btnDel_Click"/>
         </StackPanel>
     </Grid>
 </Window>
