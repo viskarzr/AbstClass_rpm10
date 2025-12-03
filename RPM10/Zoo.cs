@@ -8,12 +8,23 @@ namespace RPM10
 {
     public abstract class Animal
     {
+        // id животного
         public int ID { get; set; }
+        // название животного
         public string Name { get; set; }
-        public int Age { get; set; } 
+        //возраст
+        public int Age { get; set; }
+        //вес
         public double Weight { get; set; }
-
+        //тип животного
         public abstract string Animals { get; }
+        /// <summary>
+        /// обновление информации о животном
+        /// </summary>
+        /// <param name="id"> id животного </param>
+        /// <param name="name"> название животного </param>
+        /// <param name="age"> возраст </param>
+        /// <param name="weight"> вес </param>
         public abstract void UpdateAnimals(int id,string name, int age, double weight);
 
         public override string ToString()
