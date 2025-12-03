@@ -17,6 +17,7 @@ namespace RPM10
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
@@ -27,12 +28,19 @@ namespace RPM10
         private List<Animal> listAmimals = new List<Animal>();
         private Animal selectedAnimals = null;
         Animal Animals;
+
+        /// <summary>
+        /// обновление листа 
+        /// </summary>
         private void UpdateAnimalsList()
         {
             lbAnimal.ItemsSource = null;
             lbAnimal.ItemsSource = listAmimals;
         }
 
+        /// <summary>
+        /// очищение полей 
+        /// </summary>
         private void ClearFields()
         {
             tbId.Clear();
@@ -41,6 +49,10 @@ namespace RPM10
             tbWeight.Clear();
             cbAnimals.SelectedIndex = 0;
         }
+
+        /// <summary>
+        /// добавление элементов в лист
+        /// </summary>
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
             bool f1, f2, f3;
@@ -76,6 +88,9 @@ namespace RPM10
             }
         }
 
+        /// <summary>
+        /// изменение элемента листа
+        /// </summary>
         private void btnChange_Click(object sender, RoutedEventArgs e)
         {
             bool f1, f2, f3;
@@ -105,6 +120,11 @@ namespace RPM10
             
         }
 
+        /// <summary>
+        /// удаление из листа
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDel_Click(object sender, RoutedEventArgs e)
         {
             if (selectedAnimals !=null)
@@ -120,19 +140,31 @@ namespace RPM10
             }
         }
 
+        /// <summary>
+        /// кнопка о программе
+        /// </summary>
         private void btnAbout_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Практическая работа №10 - Работа с абстрактными классами. Вариант 5. Создать Класс, содержащий колекции объектов - Зоопарк. Базовый абстрактный класс - Животное. Производные классы - млекопитающие, парнокопытные, птицы.\nВыполнила:\nстудентка ИСП-31\nКирюшова В.");
         }
 
+        /// <summary>
+        /// кнопка о программе
+        /// </summary>
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
-
+        /// <summary>
+        /// отображение выделенной информации
+        /// </summary>
         private void lbAnimal_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             selectedAnimals = (Animal)lbAnimal.SelectedItem;
+            tbId.Text = selectedAnimals.ID.ToString();
+            tbName.Text = selectedAnimals.Name;
+            tbAge.Text = selectedAnimals.Age.ToString();
+            tbWeight.Text = selectedAnimals.Weight.ToString();
         }
     }
 }
