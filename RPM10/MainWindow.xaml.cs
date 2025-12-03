@@ -149,7 +149,7 @@ namespace RPM10
         }
 
         /// <summary>
-        /// кнопка о программе
+        /// кнопка выхода
         /// </summary>
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
@@ -161,10 +161,6 @@ namespace RPM10
         private void lbAnimal_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             selectedAnimals = (Animal)lbAnimal.SelectedItem;
-            tbId.Text = selectedAnimals.ID.ToString();
-            tbName.Text = selectedAnimals.Name;
-            tbAge.Text = selectedAnimals.Age.ToString();
-            tbWeight.Text = selectedAnimals.Weight.ToString();
         }
     }
 }
